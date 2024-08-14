@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:application.properties" />
+
+
+    <bean id="myBean" class="uz.pdp.springframeworkcore.MyBean"/>
+    <bean id="myBean2" class="uz.pdp.springframeworkcore.MyBean2">
+        <constructor-arg name="myBean" ref="myBean" />
+    </bean>
+
+    <bean id="person" class="uz.pdp.springframeworkcore.Person">
+
+        <constructor-arg index="0" value="Abduroziqov Quvonchbek"/>
+        <constructor-arg index="1" value="20"/>
+    </bean>
+
+    <bean id="BaseDAO" class="uz.pdp.springframeworkcore.BaseDAO"
+        c:url="${spring.datasource.url}"
+          c:user="${spring.datasource.user}"
+          c:password="${spring.datasource.password}"
+          c:database="${spring.datasource.database}"
+          c:scheme="${spring.datasource.scheme}"
+          c:driver="${spring.datasource.driver}"
+    />
+
+    <bean id="userService" class="uz.pdp.springframeworkcore.UserService" />
+    <bean id="roleService" class="uz.pdp.springframeworkcore.RoleService" />
+
+</beans>
