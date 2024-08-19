@@ -19,7 +19,7 @@
         <constructor-arg index="1" value="20"/>
     </bean>
 
-    <bean id="BaseDAO" class="uz.pdp.springframeworkcore.BaseDAO"
+    <bean id="baseDAO" class="uz.pdp.springframeworkcore.BaseDAO"
         c:url="${spring.datasource.url}"
           c:user="${spring.datasource.user}"
           c:password="${spring.datasource.password}"
